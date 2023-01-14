@@ -74,7 +74,7 @@ router.route("/sendEmail").post(
       service: "gmail",
       auth: {
         user: "marshalyordanos32@gmail.com",
-        pass: "mgfgeiwffudvcjnc",
+        pass: "fvcfrdfpevpcpgop",
       },
     });
     let t = false;
