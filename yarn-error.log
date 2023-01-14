@@ -1,0 +1,44 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\K.K.M\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+
+PATH: 
+  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Users\K.K.M\AppData\Local\Microsoft\WindowsApps;;C:\Users\K.K.M\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\K.K.M\AppData\Roaming\npm
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.12.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, open 'C:\Users\K.K.M\AppData\Local\Yarn\Cache\v6\npm-@aws-sdk-client-cognito-identity-3.223.0-7f9ae254921445816b6ed37a967398481e0b76fc-integrity\node_modules\@aws-sdk\client-cognito-identity\.yarn-metadata.json'
+
+npm manifest: 
+  {
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "start": "nodemon index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "bcrypt": "^5.0.1",
+      "dotenv": "^16.0.2",
+      "express": "^4.18.1",
+      "mongoose": "^6.6.1",
+      "multer": "^1.4.5-lts.1",
+      "path": "^0.12.7"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
