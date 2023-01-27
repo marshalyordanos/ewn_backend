@@ -26,10 +26,15 @@ const upload2 = multer({
   storage: multerStorage2,
   fileFilter: multerFilter2,
 });
+const upload3 = multer({
+  storage: multerStorage2,
+  fileFilter: multerFilter2,
+});
 const uploadUserPhoto2 = upload2.fields([
   { name: "photo", maxCount: 100 },
   { name: "video", maxCount: 100 },
 ]);
+const uploadUserPhoto3 = upload3.fields([{ name: "image", maxCount: 1 }]);
 
 //create post
 
@@ -137,20 +142,24 @@ router.get("/:id", async (req, res) => {
 
 // get all post
 router.get("/", async (req, res) => {
+  console.log("+==================================================");
   const username = req.query.user;
   const catName = req.query.cat;
   try {
     let posts;
     if (username) {
-      posts = await Post.find({ username: username });
+      posts = await Post.find({ username: username }).sort([
+        "createdAt",
+        "descending",
+      ]);
     } else if (catName) {
       posts = await Post.find({
         categories: {
           $in: [catName],
         },
-      });
+      }).sort({ createdAt: 1 });
     } else {
-      posts = await Post.find();
+      posts = await Post.find().sort({ createdAt: -1 });
     }
     res.status(200).json(posts);
   } catch (error) {
@@ -158,11 +167,13 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/payment/:id", async (req, res) => {
+router.post("/payment/:id", uploadUserPhoto3, async (req, res) => {
   const id = req.params.id;
   // const uid = req.params.uid;
-
-  console.log("--------------==========-", id);
+  if (req.files?.image) {
+    req.body.image = "/images/" + req.files.image[0].filename;
+  }
+  console.log("------------=====88888--==========-", req.body);
   try {
     // let user = await Member.findById(id);
 
@@ -183,7 +194,7 @@ router.post("/payment/:id", async (req, res) => {
 
 router.patch("/payment/:id", async (req, res) => {
   const id = req.params.id;
-  console.log("------------=====88888--==========-", req.body);
+
   try {
     // let user = await Member.findById(id);
 

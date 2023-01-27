@@ -86,7 +86,7 @@ router.route("/sendEmail").post(
       let info = {
         from: "marshalyordanos32@gmail.com",
         to: user.email,
-        subject: "sunjects",
+        subject: "Ewien Membership message",
         text: req.body.content,
       };
       console.log(req.body);

@@ -4,6 +4,7 @@ const PaymentSchema = new mongoose.Schema(
   {
     price: String,
     note: String,
+    image: String,
     user: {
       type: mongoose.Schema.ObjectId,
       ref: "User",
