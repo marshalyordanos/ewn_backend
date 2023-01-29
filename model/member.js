@@ -7,6 +7,8 @@ const MemberSchema = new mongoose.Schema(
       require: true,
       unique: true,
     },
+    desc: String,
+    location: String,
     username: {
       type: String,
       require: true,
